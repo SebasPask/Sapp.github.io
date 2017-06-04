@@ -15,8 +15,4 @@ app.use(bodyParser.json());
 // rutas base
 app.user('/api', user_routes);
 
-app.get('/pruebas', function(reg,res){
-  res.status(200).send({message:'Bienvenido SebasPask'})
-})
-
 module.exports = app;
