@@ -1,0 +1,54 @@
+<div *ngIf="identity" class="navigation col-lg-1">
+  <h1>
+    {{title}}
+  </h1>
+</div>
+<div class="clearfix"></div>
+<div *ngIf="identity" class="central col-lg-11">
+  <p>Estas logueado en la aplicacion</p>
+</div>
+<div class="col-lg-12 text-center" *ngIf="!identity">
+  <div class="col-lg-6">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-9">
+      <h1>Login</h1>
+      <p>
+        <label>Email:</label>
+        <input type="email" #email="ngModel" name="email" [(ngModel)]="user.email" class="form-control" required>
+        <span class="erf" *ngIf="!email.valid && email.touched">
+          Wrong email
+        </span>
+      </p>
+      <p>
+        <label>Password:</label>
+        <input type="password" #password="ngModel" name="password" [(ngModel)]="user.password" class="form-control" required>
+      </p>
+      <input type="submit" class="btn btn-success" name="" value="Login">
+    </form>
+  </div>
+  <div class="col-lg-6">
+    <form class="col-lg-9">
+      <h1>Resgister</h1>
+      <p>
+        <label>Name:</label>
+        <input type="text" class="form-control" required>
+      </p>
+      <p>
+        <label>Surname:</label>
+        <input type="text" class="form-control" required>
+      </p>
+      <p>
+        <label>Email:</label>
+        <input type="text" class="form-control" required>
+      </p>
+      <p>
+        <label>Password:</label>
+        <input type="password" class="form-control" required>
+      </p>
+      <p>
+        <label>Confirn password:</label>
+        <input type="password" class="form-control" required>
+      </p>
+      <input type="submit" class="btn btn-success" name="" value="Register">
+    </form>
+  </div>
+</div>
