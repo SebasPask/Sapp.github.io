@@ -1,3 +1,10 @@
 body {
-  background: black;
-  background-color: #fff; }
+  background: #160C48; }
+
+form {
+  width: 600px;
+  height: 700px;
+  margin: 50px;
+  padding: 50px;
+  border-radius: 5px;
+  background: #EEEDEF; }
