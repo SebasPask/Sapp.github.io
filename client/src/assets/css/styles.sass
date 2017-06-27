@@ -1,13 +1,72 @@
-body
+
+$texto: #008008
+$hover: #009C0A
+$exit: #A20400
+
+html, body
   background: #160C48
+  color: #fff
+  margin: 0px
+  height: 100%
+
+.head-title
+  font-size: 20px
+  font-weight: bold
+  text-transform: uppercase
+  margin-bottom: 45px
+  display: block
+
+.navigation
+  text-align: center
+  color: $texto
+  background: #1C1C1f
+  height: 100%
+  list-style: none
+
+.navigation a
+  color: $texto
+  margin-top: 20px
+  margin-bottom: 20px
+  display: block
+  text-decoration: none
+
+.navigation a:hover
+  color: $hover
+.navigation .log-out:hover
+  cursor: pointer
+  color: $exit !important
+
+.navigation .glyphicon
+  font-size: 35px
+  display: block
+  width: 100%
+
+#user_logged
+  text-decoration: center
+  background: #1C1C1F
+  position: absolute
+  bottom: 0px
+  border-top: 1px solid #444
+  width: 80%
+
+.btnlg
+  margin: 10px
 
 .erf
   color #fff
 
 form
+  color: black
   width: 600px
   height: 700px
   margin: 50px
   padding: 50px
   border-radius: 5px
   background: #EEEDEF
+
+
+.user-img
+  width: 100px
+  border-radius: 100%
+  border: 2px solid $texto
+  margin: 10px

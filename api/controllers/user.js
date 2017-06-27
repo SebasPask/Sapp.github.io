@@ -1,13 +1,38 @@
 'user strict'
 var fs = require('fs');
 var path = require('path');
+var mongoosePaginate = require('mongoose-pagination');
 var bcrypt = require('bcrypt-nodejs');
 var User = require('../models/user');
+var Artist = require('../models/artist');
+var Album = require('../models/album');
+var Song = require('../models/song');
 var jwt = require('../services/jwt');
-
 function pruebas(req, res) {
   res.status(200).send({
     message: 'probando.....'
+  });
+}
+function getUsers(req, res){
+  if (req.params.page) {
+    var page = req.params.page;
+  } else {
+    var page = 1;
+  }
+  var itemsPerPage = 3;
+  User.find().paginate(page, itemsPerPage, function (err, user, total){
+    if (err) {
+      res.status(500).send({message:'Error en la peticion'});
+    } else {
+      if (!user) {
+        res.status(404).send({message:'No hay artistas!!'});
+      } else {
+        return res.status(200).send({
+          totalItems: total,
+          users: user
+        });
+      }
+    }
   });
 }
 function saveUser(req, res) {
@@ -88,6 +113,9 @@ function loginUser(req, res) {
 function updateUser(req,res){
   var userId = req.params.id;
   var update = req.body;
+  if (userId != req.user.sub) {
+    return  res.status(500).send({message: 'No tinenes permiso para actualizar este usuario'});
+  }
   User.findByIdAndUpdate(userId,update, (err, userUpdated) =>{
     if (err) {
       res.status(500).send({message: 'Error al actualizar el usuario'});
@@ -142,5 +170,6 @@ module.exports = {
   loginUser,
   updateUser,
   uploadImage,
-  getImageFile
+  getImageFile,
+  getUsers
 };
