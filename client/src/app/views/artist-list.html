@@ -1,6 +1,6 @@
-<div class="head-page" *ngIf="identity">
-  <form >
-    <h1 class="text-center">{{titulo}}</h1>
-  </form>
-
-</div>
+<form class="col-lg-11">
+    <div class="head-page " *ngIf="identity">
+      <h1 class="text-center">{{titulo}}</h1>
+      <a class="btn btn-default" *ngIf="identity && identity.role == 'ROLE_ADMIN'">add a new artist</a>
+  </div>
+</form>

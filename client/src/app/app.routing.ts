@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserEditComponent } from './components/user-edit.component';
 // import artist
 import { ArtistListComponent } from './components/artist-list.component';
+import { HomeComponent } from './components/home.component';
 const apppRoutes: Routes = [
-  {path:'', component: ArtistListComponent},
+  {path:'', component: HomeComponent},
   {path:'artist/:page',component: ArtistListComponent},
+  {path: 'artistas/:page', component: ArtistListComponent},
   {path:'mis-datos', component: UserEditComponent},
-  {path:'**', component: ArtistListComponent}
+  {path: '**', component: HomeComponent}
 ];
 export const appRoutingProviders: any[] =[];
 export const routing: ModuleWithProviders = RouterModule.forRoot(apppRoutes);

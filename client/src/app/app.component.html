@@ -1,4 +1,4 @@
-<div *ngIf="identity" class="text-center navigation col-lg-1">
+<div *ngIf="identity" class="text-center navigation col-md-1">
   <h1 class="head-title">
     <a [routerLink]="['/']">
       <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
@@ -10,7 +10,7 @@
           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           Search
         </a>
-        <a [routerLink]="['/artst',1]">
+        <a [routerLink]="['/artistas', 1]" [routerLinkActive]="['actived']">
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
           Artists
         </a>
@@ -20,14 +20,14 @@
         </a>
   </nav>
   <nav id="user_logged">
-        <div class="user_image">
+        <div class="user_image text-center">
           <img class="user-img" id="image-logged" src="{{ url + 'get-image-user/' + identity.image }}">
           <p id="identity_name">{{identity.name}}</p>
         </div>
 
-        <a [routerLink]="['/mis-datos']">
+        <a [routerLink]="['/mis-datos']" [routerLinkActive]="['actived']">
           <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-          Settings
+          Account
         </a>
         <a class="log-out" (click)="logout()">
           <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
@@ -35,7 +35,7 @@
         </a>
   </nav>
 </div>
-<div *ngIf="identity" class="col-lg-11" >
+<div [class.hidden]="!identity" class="col-md-11" >
   <router-outlet></router-outlet>
 </div>
 <div class="text-center col-lg-11" *ngIf="!identity">

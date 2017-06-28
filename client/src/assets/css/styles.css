@@ -48,6 +48,11 @@ html, body {
 .btnlg {
   margin: 10px; }
 
+.actived {
+  color: #009C0A !important;
+  border-bottom: 4px solid #009C0A;
+  padding-bottom: 4px; }
+
 form {
   color: black;
   width: 600px;
@@ -57,8 +62,16 @@ form {
   border-radius: 5px;
   background: #EEEDEF; }
 
-.user-img {
-  width: 100px;
+.user-img1 {
+  width: 230px;
   border-radius: 100%;
   border: 2px solid #008008;
-  margin: 10px; }
+  margin-top: 15px;
+  margin-bottom: 10px; }
+
+.user-img {
+  width: 90px;
+  border-radius: 100%;
+  border: 2px solid #008008;
+  margin-top: 15px;
+  margin-bottom: 10px; }
