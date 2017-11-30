@@ -1,0 +1,26 @@
+<div class="col-lg-6 ">
+    <form class="col-lg-10" #formArtist="ngForm" (ngSubmit)="onSubmit">
+        <h1 class="text-center">{{titulo}}</h1>
+        <div *ngIf="alertMessage">
+            <div class="alert alert-danger">
+                <strong>Error! </strong> {{alertMessage}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Artitst name" #name="ngModel" name="name" [(ngModel)]="artist.name" required>
+            <span *ngIf="!name.valid && name.touched" >
+                The name is required
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Description</label>
+            <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="Artitst description" #name="ngModel" name="description" [(ngModel)]="artist.description" required></textarea>
+            <span *ngIf="!name.valid && name.touched" >
+                The description is required
+            </span>
+        </div>
+
+        <input class="btn btn-success pull-right" type="submit" value="{{titulo}}" [disabled]="!formArtist.form.valid">
+    </form>
+</div>

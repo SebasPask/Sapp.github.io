@@ -41,7 +41,7 @@
 <div class="text-center col-lg-11" *ngIf="!identity">
 
   <!--LOGIN-->
-  <div class="col-lg-6">
+  <div id="loginForm" class="col-lg-6">
     <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-9">
       <h1>Login</h1>
       <div *ngIf="errorMessage">
@@ -64,10 +64,12 @@
         </span>
       </p>
       <input type="submit" class="btn btn-success" name="" value="Login">
+      <p></p>
+      <p><a class="toggleForms">Register</a></p>
     </form>
   </div>
   <!--REGISTER-->
-  <div class="col-lg-6">
+  <div id="registerForm" class="col-lg-6">
     <form #registerForm="ngForm" (ngSubmit)="onSubmitResgister()" class="col-lg-9 ">
       <h1>Resgister</h1>
       <div *ngIf="alertRegister">
@@ -104,7 +106,15 @@
         </span>
       </p>
       <input type="submit" class="btn btn-success" name="" value="Register">
+      <p></p>
+      <p><a class="toggleForms">Login</a></p>
     </form>
   </div>
 
+  <script type="text/javascript">
+    $(".toggleForms").click(function() {
+      $("#loginForm").toggle();
+      $("#registerForm").toggle();
+    })
+  </script>
 </div>

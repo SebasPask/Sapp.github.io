@@ -1,0 +1,14 @@
+#!/bin/bash
+
+osascript -e 'tell application "Terminal" to activate'
+osascript -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down'
+osascript -e 'tell application "Terminal" to do script "sapC" in selected tab of the front window'
+osascript -e 'tell application "Terminal" to do script "npm start" in selected tab of the front window'
+osascript -e 'tell application "Terminal" to activate'
+osascript -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down'
+osascript -e 'tell application "Terminal" to do script "sapA" in selected tab of the front window'
+osascript -e 'tell application "Terminal" to do script "npm start" in selected tab of the front window'
+osascript -e 'tell application "Terminal" to activate'
+osascript -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down'
+osascript -e 'tell application "Terminal" to do script "mongod" in selected tab of the front window'
+say 'Starting the web app'
